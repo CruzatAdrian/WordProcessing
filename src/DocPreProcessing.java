@@ -74,11 +74,13 @@ public class DocPreProcessing {
 				Line = Line.replaceAll("[^a-zA-Z ]", "").toLowerCase(); 		//Get rid of non Alphabetic Characters
 				words = Line.split("\\s");
 				
+				ProcessedString += ReviewCount + " English ";
 				
 				for(String word : words){
 					stemmer.setCurrent(word);											//Pass the word to the English Stemmer
 					stemmer.stem();														//Stem the word
 					String wordStem = stemmer.getCurrent();
+					
 					
 					if ("".equals(wordStem) | stopWords.contains(word)){				//Use the actual word for stopword checking in case the stem is not listed there
 						continue;
@@ -109,7 +111,6 @@ public class DocPreProcessing {
 			
 			FileWriter fw = new FileWriter(outputFile.getAbsoluteFile());
 			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(ReviewCount + "\r\n");
 			bw.write(ProcessedString.trim());
 			
 			br.close();
