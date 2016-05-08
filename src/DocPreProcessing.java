@@ -95,10 +95,10 @@ public class DocPreProcessing {
 							alreadyCounted.add(wordStem);								//Add the word to the already counted set, so it does not get double counted.
 						}
 						
-						ProcessedString += word + " ";
+						ProcessedString += wordStem + " ";
 						
 					} else {													//If the word has never been encountered before, then just create instances in the Cloud and frequency
-						ProcessedString += word + " ";							//maps and add it to the already counted set.
+						ProcessedString += wordStem + " ";							//maps and add it to the already counted set.
 						wordCloud.put(wordStem, 1);
 						documentFreq.put(wordStem, 1);
 						alreadyCounted.add(wordStem);
